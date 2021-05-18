@@ -1,0 +1,561 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+/*Wrap class*/
+* {
+  padding:0px;
+  margin: 0px;
+  font-size:100%;
+}
+div{
+ display: block;
+}
+
+body{
+ line-height: 150%;
+ color:#666;
+ text-align: center;
+ font-family: "ヒラギノ角ゴ Pro W3",
+               "Hiragino Kaku Gothic Pro",
+               Osaka,"ＭＳ Ｐゴシック",
+               "MS PGothic",sans-serif;
+ -webkit-text-size-adjust: 100%;
+}
+@media (mini-width:770px){
+html,body,.wrap{
+ height:100%;
+ min-height: 100%;
+ }
+}
+a{
+ overflow: hidden;
+ color:#004f99;
+}
+a:-webkit-any-linkn{
+ cursor:pointer;
+ text-decoration: underline;
+}
+/*===================innerBox========================*/
+.innerBox{
+ text-align: left;
+ width:950px;
+ margin:0px auto;
+}
+/*==================headerTop========================*/
+@media(mini-width:770px){
+.headerTop{
+ display:block;
+ }
+}
+.headerTop{
+ border-top-color:#004f99;/*Blue Top Bar*/
+ border-top-width: 2px;  /*Border thick 2px*/
+ border-top-style: solid; /*Solid Border Top Style*/
+ 
+ background-color:#f5f5f5;
+ clear: both;
+ color: #666;
+ overflow: hidden;
+ width: 100%;
+ padding: 2px 0px;
+ font-size: 85.7%;
+}
+/*-------------------innerBox-------------------------*/
+@media (min-width: 970px){
+.innerBox,topMenu .menuInner .innerBox{
+   width:950px;
+   margin: 0px auto;
+ }
+}
+/*--------------------site-description-----------------*/
+@media (min-width: 660px){
+ .headerTop .site-description{
+   line-height: 150%;
+   font-size: 12px;
+ }
+}
+/*==================HEADER============================*/
+.header, .pageTop, .footmenu, .footer{
+ padding-top: 15px;
+ text-align: left;
+ display:block;
+ overflow: hidden;
+ clear:both;
+}
+h1{
+ padding:0px;
+ font-family: "ヒラギノ角ゴ Pro W3",
+               "Hiragino Kaku Gothic Pro",
+               "メイリオ",Meiryo,Osaka,
+               "ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+}
+.header .site-title{
+ padding-bottom: 15px;
+ float:left;
+ font-size: 24px;
+ line-height: 45px;
+ margin: 0px;
+ position: relative;
+ font-weight: lighter;
+}
+.header .site-title a{
+ color: #000;
+ font-weight: bold;
+ text-decoration: none;
+ overflow: hidden;
+}
+.header .site-title a img{
+ max-height: 60px;
+ margin-top:3px;
+}
+.innerBox img{
+ max-width: 100%;
+}
+img{
+ border:none;
+ vertical-align: bottom;
+}
+ul{
+ display: block;
+ margin-block-start: 1em;
+ margin-block-end: 1em;
+ margin-inline-start: 0px;
+ margin-inline-end: 0px;
+ padding-inline-start: 40px;
+}
+/*=====================Menu===========================*/
+.MuiButton-root{
+ border-radius:0px 0px;
+}
+.MuiButton-containedPrimary{
+ background: linear-gradient(#004f99, #0a0000);
+}
+
+.gbutton{
+ border-radius:0px;
+}
+
+.gMenu{
+ clear: both;
+ display: block;
+ overflow: visible;
+ border-top: 2px solid #004f99;
+ position: relative;
+ width: 100%;
+ box-shadow: inset 0 1px 0 #fff;
+
+}
+
+.mainMenu {
+ width:950px;  
+ margin:0px auto;
+}
+
+.mainMenu li {
+ position:relative;
+ display:block;
+ width:228px;
+ float:left;
+}
+
+.mainMenu a{
+text-align: center;
+display:block;
+padding:3px;
+text-decoration:none;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e5e5e5), to(#fff));
+color:#333;
+}
+.homebg a{
+ color:#fff;
+ background: linear-gradient(#004f99, #0a0000);
+}
+
+ul.mainMenu>li .mainul:hover a{
+   color:#f5f5f5;
+   background: linear-gradient(#004f99, #0a0000);
+}
+.mainMenu ul li:hover a{
+background-color: #004f99;
+border-right: 1px solid #0a0000;
+color:#fff;
+}
+
+.mainMenu li ul {
+margin:0px;
+padding:0px;
+left:-3px;
+top:30px;
+display:none;
+}
+
+.mainMenu li ul li {
+width:180px;
+font-size:smaller;
+border-top:none;
+}
+
+.mainMenu li ul li:first-child {
+border-top:none;
+}
+
+.mainMenu li:hover ul {
+display:block;
+}
+
+/*=========================TopMainBanner==========================*/
+.topMainBnr{
+ padding:1px 0px;
+ /* box-shadow: inset 1px 1px 3px rgb(0 0 0 / 30%); */
+ border-bottom: 1px solid #ccc;
+ width:100%;
+ /* position: relative; */
+ display: block;
+ overflow: visible;
+ background-color: #004f99;
+}
+
+/* .topMainBnrFrame{
+ position: relative;
+ display: block;
+ margin: 0 auto;
+ width: 100%;
+ height: auto;
+ box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+ border: none;
+ min-height: 250px;
+} */
+/* .topMainBnrFrame .slideFrame{
+ border: none;
+ display: block;
+ overflow: hidden;
+ position: relative;
+} */
+/* .topMainBnrFrame .slideFrame img{
+ left:0px;
+ position: relative;
+ width: 100% !important;
+ max-width: 100% !important;
+ height: auto !important;
+} */
+/* img{
+ border: none;
+ vertical-align: bottom;
+} */
+
+/*==========================MAIN BODY=============================*/
+.home .main{
+ padding-top:0px;
+}
+.main{
+ 
+ clear:both;
+ display:block;
+ overflow:visible;
+ zoom:1;
+ width:100%;
+ margin:0px auto;
+}
+.main .container{
+ padding-top:30px;
+ overflow:visible;
+}
+.main .container .content{
+ margin: 0px auto;
+ float:left;
+ width:640px;
+ padding-bottom:30px;
+}
+.content{
+ text-align: left; 
+ display:block;
+ overflow:visible;
+}
+p{
+ text-align: left;
+ font-family: arial, helvetica, sans-serif;
+ margin:0px;
+ 
+ display: block;
+ margin-block-start: 1em;
+ margin-block-end: 1em;
+ margin-inline-start: 0px;
+ margin-inline-end: 0px;
+}
+.content p{
+ line-height: 170%;
+ margin-bottom: 20px;
+ padding: 0px 5px;
+}
+.has-vivid-red-color.has-vivid-red-color {
+ color: #cf2e2e;
+}
+.has-medium-font-size {
+ font-size: 20px;
+}
+/*==================TOPFREE AREA==========================*/
+.topFreeArea{
+ margin-bottom: 35px;
+ display: block;
+ overflow: hidden;
+ padding-bottom: 15px;
+ border-bottom: 1px solid #ccc;
+ -webkit-box-shadow: 0 2px 1px #efefef;
+}
+/*=====================MainBody H2====================================*/
+.content h2{
+ clear: both;
+ font-size: 128.6%;
+ padding: 13px 0px 8px;
+ margin: 30px 0px 25px;
+ padding-left: 15px;
+ padding-right: 15px;
+ font-weight: bold;
+ color: #333;
+ position: relative;
+ line-height: 114.3%;
+ /*H2 Box Style*/
+ box-shadow: inset 0 1px 0 #fff;
+ border: 1px solid #ccc;
+ border-top: 2px solid #004f99;
+ background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e5e5e5), to(#fff));
+}
+
+.content h2 a{
+ text-decoration: none;
+ color: inherit;
+}
+
+/*====================MainBody ul, li==========================================*/
+.content ul{
+ margin : 0px 0px 20px 20px;
+ list-style: none;
+}
+
+.content ul li{
+ list-style-type: disc;
+ padding:0px;
+}
+.content li{
+ margin-bottom: 10px;
+}
+
+/*================================SideTower========================*/
+.main .container .sideTower{
+ display:block;
+ overflow:hidden;
+ float:right;
+ width:220px;
+ padding-bottom: 30px;
+ clear:none;
+}
+.sideTower .sideWidget{
+ margin-bottom: 20px;
+ margin:0px;
+}
+
+/*---------------sideTower Widget li-----------------*/
+.sideTower .sideWidget li{
+ list-style: none;
+ border-bottom: 1px solid #ccc;
+ line-height: 121.4%;
+}
+.sideTower .sideWidget li a{
+ display: block;
+ padding: 13px 10px 11px 28px;
+ text-decoration: none;
+ color: #666;
+ line-height: 121.4%;
+}
+.sideWidget li.current_page_item a{
+ background-color: #efefef;
+ display: block;
+ padding: 13px 10px 11px 28px;
+ text-decoration: none;
+ color: #666;
+}
+
+/*==========================BackTop======================================*/
+.back-top{
+ display:none;
+ z-index: 500;
+ position: relative;
+}
+
+.back-top .pageTop{
+ position:fixed;
+ bottom:20px;
+ right:20px;
+}
+
+.pagetop{
+ display: block;
+ overflow:hidden;
+ clear:both;
+ z-index:5;
+ text-align: center;
+}
+
+/*============================FooterSection===========================================*/
+.footerSection{
+ top:53px;
+ position:relative;
+}
+.footerSection .pagetop{
+ display:none;
+ overflow:hidden;
+ clear:both;
+ z-index:5;
+}
+.pagetop a{
+ background-color: #004f99;
+ color: #f5f5f5;
+ margin-top: 5px;
+ z-index: 500;
+ 
+ float: right;
+ display: block;
+ position: relative;
+ padding: 5px 15px 13px;
+ font-size: 11px;
+ text-decoration: none;
+ margin-bottom: 0px;
+ font-family: 'Lato', sans-serif;
+ letter-spacing: 1px;
+}
+
+/*==================================FootMenu==========================================*/
+.footMenu{
+ border-top-color:#0a0000;
+ background-color: #004f99;
+ border-top-width: 2px;
+ border-top-style: solid;
+ margin-top: -10px;
+ padding: 10px 0px;
+ display: block;
+ overflow: hidden;
+ width: 100%;
+ z-index: 10;
+ position: relative;
+ text-align: center;
+   clear: both;
+}
+.footMenu .innerBox {
+ border: none;
+ padding: 0px;
+}
+/*Footer*/
+.footer{
+border-top: 100px solid #151515;
+color: #808080;
+background-color: #191919;
+text-align: left;
+margin: 0px;
+padding: 20px 0px 20px;
+display: block;
+overflow: hidden;
+clear: both;
+}
+.footer dl.footerOutline {
+ float: left;
+ margin: 0px;
+ line-height: 150%;
+ width: 300px;
+}
+.dl{
+ padding: 0;
+}
+dt{
+ display: block;
+ font-weight: bold;
+ margin: 0;
+ padding: 0;
+}
+.footer dl.footerOutline dt {
+ margin-bottom: 8px;
+ line-height: 150%;
+}
+.footer dl.footerOutline dt img {
+ margin-bottom: 5px;
+ max-width: 260px;
+}
+.footer dl.footerOutline dt img {
+ margin-bottom: 5px;
+ max-width: 260px;
+}
+dd{
+ font-family: arial, helvetica, sans-serif;
+ font-weight: bold;
+ color: #666 !important;
+ margin: 0;
+   padding: 0;
+   display: block;
+   margin-inline-start: 40px;
+}
+.footer dl.footerOutline dd {
+ font-size: 85.7%;
+ line-height: 150%;
+}
+
+/*footer sidemap*/
+.footerSiteMap {
+ display: block;
+ overflow: hidden;
+ width: 640px;
+ padding-top: 0px;
+ font-size: 12px;
+}
+.footerSiteMap .menu {
+ font-size: 12px;
+ vertical-align: text-top;
+}
+.footerSiteMap .menu li {
+ display: inline-block;
+ vertical-align: text-top;
+   line-height: 116.7%;
+   margin-bottom: 6px;
+}
+
+.footerSiteMap .menu li a {
+ background-position: left 2px;
+ padding: 1px 20px 4px 18px;
+ /* background: url(images/icon_arrow1_gray.gif) left 50% no-repeat; */
+ overflow: hidden;
+ display: block;
+ color: #808080;
+}
