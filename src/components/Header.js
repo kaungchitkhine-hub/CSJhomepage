@@ -1,140 +1,78 @@
+import { AppBar, Toolbar, makeStyles, Button } from "@material-ui/core";
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import Button from "@material-ui/core/Button";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { withRouter } from "react-router-dom";
+import logo from '../images/csj_homepagelogo.png'
+import { Link as RouterLink } from "react-router-dom";
+const headersData = [
+    {
+        label: "ホーム",
+        href: "/home",
+    },
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1
+    {
+        label: "ソリューション",
+        href: "/solution",
     },
-    menuButton: {
-        marginRight: theme.spacing(2)
+
+    {
+        label: "会社情報",
+        href: "/about_company",
     },
-    title: {
-        [theme.breakpoints.down("xs")]: {
-            flexGrow: 1
-        }
+
+    {
+        label: "お問い合わせ",
+        href: "/contact",
     },
-    headerOptions: {
-        display: "flex",
-        flex: 1,
-        justifyContent: "space-evenly"
-    }
+];
+
+const useStyles = makeStyles(() => ({
+    header: {
+        backgroundColor: "#004f99",
+    },
+    getMenuButtons: {
+        fontFamily: "Open Sans,sans-serif",
+        fontWeight: 700,
+        size: "18px",
+        marginLeft: "38px",
+    },
 }));
 
-const Header = props => {
-    const { history } = props;
-    const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
-    const handleMenu = event => {
-        setAnchorEl(event.currentTarget);
+export default function Header() {
+    const { header } = useStyles();
+
+    const displayDesktop = () => {
+        return (
+            <Toolbar className={toolbar}>
+                {companyLogo}
+                <div>{getMenuButtons()}</div>
+            </Toolbar>
+        );
     };
 
-    const handleMenuClick = pageURL => {
-        history.push(pageURL);
-        setAnchorEl(null);
-    };
+    const companyLogo = (
+        <img src={logo} alt="csj_株式会社コムサット・ジャパン" />
+    );
 
-    const handleButtonClick = pageURL => {
-        history.push(pageURL);
+    const getMenuButtons = () => {
+        return headersData.map(({ label, href }) => {
+            return (
+                <button
+                    {...{
+                        key: label,
+                        color: "inherit",
+                        to: href,
+                        component: RouterLink,
+                    }}
+                >
+                    {label}
+                </button>
+            );
+        });
     };
-
-    const menuItems = [
-        {
-            menuTitle: "Home",
-            pageURL: "/"
-        },
-        {
-            menuTitle: "Contact",
-            pageURL: "/contact"
-        },
-        {
-            menuTitle: "About",
-            pageURL: "/about"
-        }
-    ];
 
     return (
-        <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
-                        Photos
-          </Typography>
-                    {isMobile ? (
-                        <>
-                            <IconButton
-                                edge="start"
-                                className={classes.menuButton}
-                                color="inherit"
-                                aria-label="menu"
-                                onClick={handleMenu}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: "top",
-                                    horizontal: "right"
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: "top",
-                                    horizontal: "right"
-                                }}
-                                open={open}
-                                onClose={() => setAnchorEl(null)}
-                            >
-                                {menuItems.map(menuItem => {
-                                    const { menuTitle, pageURL } = menuItem;
-                                    return (
-                                        <MenuItem onClick={() => handleMenuClick(pageURL)}>
-                                            {menuTitle}
-                                        </MenuItem>
-                                    );
-                                })}
-                            </Menu>
-                        </>
-                    ) : (
-                        <div className={classes.headerOptions}>
-                            <Button
-                                variant="contained"
-                                onClick={() => handleButtonClick("/")}
-                            >
-                                HOME
-              </Button>
-                            <Button
-                                variant="contained"
-                                onClick={() => handleButtonClick("/contact")}
-                            >
-                                CONTACT
-              </Button>
-                            <Button
-                                variant="contained"
-                                onClick={() => handleButtonClick("/about")}
-                            >
-                                ABOUT
-              </Button>
-                        </div>
-                    )}
-                </Toolbar>
-            </AppBar>
-        </div>
+        <header>
+            <AppBar>{displayDesktop}</AppBar>
+        </header>
     );
-};
-
-export default withRouter(Header);
+}
