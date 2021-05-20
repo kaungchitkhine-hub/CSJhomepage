@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX REACT</title>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.14.3/babel.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <h1 class="bg-primary text-white display-4">REACT-JSXの書き方 </h1>
+    <div class="container mt-3">
+        <div id="roots">wait....</div>
+    </div>
+
+    <script type="text/babel">
+        let dom = document.querySelector('#roots')
+
+        let title = "REACT PAGE"
+        let message = "Show the message by CSS"
+
+        const msg = {
+            fontSize: "20pt",
+            fontWieght: "bold",
+            color: "red",
+            border: "2px solid green"
+        }
+
+        let printMsg = function (msg, size, color) {
+            const style = {
+                fontSize: size + "pt",
+                fontWeight: '900',
+                color: color,
+                border: "1px solid" + color
+            }
+            return <p style={style}>{msg}</p>
+        }
+
+        let el = (
+            <div>
+                <h4>{title}</h4>
+                <h6>{message}</h6>
+                <div className="alert alert-secondary mt-3">
+                    {printMsg('最初のメッセージ', 36, '#fff')}
+                    {printMsg('次のメッセージです', 24, '#aaa')}
+                    {printMsg('最後のメッセージでした', 36, '#666')}
+                </div>
+            </div >
+        )
+        ReactDOM.render(el, dom)
+    </script>
+</body>
+
+</html>
