@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算するコンポネント</title>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.14.3/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <h1 class="bg-primary text-white display-4">React</h1>
+
+    <div class="container mt-3">
+        <div id="calComponent"></div>
+    </div>
+
+    <script type="text/babel">
+        let dom = document.querySelector("#calComponent")
+        let message = "React component Calculation page."
+
+        //関数コンポネント
+        function Welcome(props) {
+            return (
+                <div className="alert alert-primary">
+                    <Calc Classes={props.classes} number={props.number} />
+                </div>
+            )
+        }
+
+        function Calc(props) {
+            let total = 0
+            for (let i = 1; i <= props.number; i++) {
+                total += i
+            }
+            return <p className={props.classes}> 1から {props.number} までの合計は,「{total}」です。</p>
+        }
+
+        function Calc1(props) {
+            return (
+                <div className="alert alert-danger">
+                    <Calc Classes={props.classes} number={props.number} />
+                </div>
+            )
+        }
+
+
+
+        let el = (
+            <div>
+                <h5 className="mb-3">{message}</h5>
+                <Welcome number="10" classes="h5" />
+                <Welcome number="100" classes="h3" />
+                <Calc number="50" classes="h4" />
+                <Calc1 number="500" classes="h6" />
+                <Calc1 number="1000" classes="h3" />
+            </div>
+        )
+        ReactDOM.render(el, dom)
+    </script>
+</body>
+
+</html>
